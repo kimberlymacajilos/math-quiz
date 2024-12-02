@@ -6,4 +6,10 @@ if (!isset($_SESSION['level']) || !isset($_SESSION['operator']) || !isset($_SESS
     exit();
 }
 
+if (!isset($_SESSION['currentquestion'])) {
+    $_SESSION['currentquestion'] = 1;
+    $_SESSION['correct'] = 0;
+    $_SESSION['wrong'] = 0;
+}
+
 ?>
