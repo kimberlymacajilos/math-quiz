@@ -1,4 +1,19 @@
 <?php
+session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['level'] = $_POST['level'];
+    $_SESSION['operator'] = $_POST['operator'];
+    $_SESSION['numitems'] = intval($_POST['numitem']);
+    $_SESSION['maxnums'] = intval($_POST['maxnum']);
+
+    if ($_SESSION['level'] === 'custom') {
+        $_SESSION['customin'] = intval($_POST['num1']);
+        $_SESSION['customax'] = intval($_POST['num2']);
+    }
+
+    header("Location: start.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
