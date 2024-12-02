@@ -48,4 +48,13 @@ switch ($operator) {
         $symbol = '?';
 }
 
+$choices = [$correctans];
+while (count($choices) < 4) {
+    $choice = $correctans + rand(-$maxnum, $maxnum);
+    if (!in_array($choice, $choices) && $choice >= 0) {
+        $choices[] = $choice;
+    }
+}
+shuffle($choices);
+
 ?>
