@@ -75,3 +75,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+</head>
+<body>
+    <h2><?php echo "$num1 $symbol $num2 = ?"; ?></h2>
+    <form method="POST">
+        <input type="hidden" name="correctanswer" value="<?php echo $correctans; ?>">
+        <?php foreach ($choices as $choice): ?>
+            <button type="submit" name="answer" value="<?php echo $choice; ?>"><?php echo $choice; ?></button><br><br>
+        <?php endforeach; ?>
+    </form>
+    <fieldset>
+        <legend>Score</legend>
+        Correct: <?php echo $_SESSION['correct']; ?><br>
+        Wrong: <?php echo $_SESSION['wrong']; ?><br>
+    </fieldset>
+    <br>
+    <form method="POST" action="end.php">
+        <button type="submit" name="end">End Quiz</button>
+    </form>
+</body>
+</html>
