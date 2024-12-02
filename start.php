@@ -12,4 +12,22 @@ if (!isset($_SESSION['currentquestion'])) {
     $_SESSION['wrong'] = 0;
 }
 
+$level = $_SESSION['level'];
+$operator = $_SESSION['operator'];
+$numitems = $_SESSION['numitems'];
+$maxnum = $_SESSION['maxnums'];
+
+if ($level === "1-10") {
+    $min = 1;
+    $max = 10;
+} 
+elseif ($level === "11-100") {
+    $min = 11;
+    $max = 100;
+} 
+else {
+    $min = $_SESSION['customin'];
+    $max = $_SESSION['customax'];
+}
+
 ?>
