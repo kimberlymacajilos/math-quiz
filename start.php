@@ -57,4 +57,21 @@ while (count($choices) < 4) {
 }
 shuffle($choices);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['answer']) && isset($_POST['correctanswer'])) {
+        if (intval($_POST['answer']) === intval($_POST['correctanswer'])) {
+            $_SESSION['correct']++;
+        } 
+        else {
+            $_SESSION['wrong']++;
+        }
+    }
+
+    $_SESSION['currentquestion']++;
+    if ($_SESSION['currentquestion'] > $numitems) {
+        header("Location: end.php");
+        exit();
+    }
+}
+
 ?>
