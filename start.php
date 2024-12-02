@@ -30,4 +30,22 @@ else {
     $max = $_SESSION['customax'];
 }
 
+switch ($operator) {
+    case 'add':
+        $correctans = $num1 + $num2;
+        $symbol = '+';
+        break;
+    case 'subtract':
+        $correctans = $num1 - $num2;
+        $symbol = '-';
+        break;
+    case 'multiply':
+        $correctans = $num1 * $num2;
+        $symbol = '*';
+        break;
+    default:
+        $correctans = 0;
+        $symbol = '?';
+}
+
 ?>
