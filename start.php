@@ -30,6 +30,9 @@ else {
     $max = $_SESSION['customax'];
 }
 
+$num1 = rand($min, $max);
+$num2 = rand($min, $max);
+
 switch ($operator) {
     case 'add':
         $correctans = $num1 + $num2;
@@ -75,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
